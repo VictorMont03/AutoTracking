@@ -1,0 +1,30 @@
+GET http://localhost:8080/places?text=av amazonas, belo horizonte, 100
+
+###
+@originId = ChIJRc3GYprDpgARAyym45ZpJZ0
+@destinationId = ChIJ9eHNTfqZpgARXXppdts-QGs
+
+###
+GET http://localhost:8080/directions?originId={{originId}}&destinationId={{destinationId}}
+
+###
+POST http://localhost:8080/routes
+Content-Type: application/json
+
+{
+	"name": "Rota 1",
+	"source_id": "{{originId}}",
+	"destination_id": "{{destinationId}}"
+}
+
+### 
+GET http://localhost:8080/routes
+
+###
+@routeId = 678438a65a9b38cd9c657a65
+
+###
+GET http://localhost:8080/routes/{{routeId}}
+
+###
+POST http://localhost:8080/routes/{{routeId}}/start

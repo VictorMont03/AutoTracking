@@ -1,0 +1,13 @@
+networks:
+  shared_network:
+    external: true
+
+services:
+  nest:
+    build: .
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 8080:8080
+    networks:
+      - shared_network

@@ -1,0 +1,13 @@
+networks:
+  shared_network:
+    external: true
+
+services:
+  next:
+    build: .
+    volumes:
+      - .:/home/node/app
+    networks:
+      - shared_network
+    ports:
+      - 3000:3000
